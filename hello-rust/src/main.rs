@@ -1,20 +1,33 @@
 use std::mem;
-
-
+use std::io;
+use std::cmp::Ordering;
+use rand::Rng;
 fn main() {
-    let t=(1,'a',false);
-    println!("Hello, world! {}",t.0);
-    //debug flag
-    //print!("{:?}",t);
-    //arrays
-    let  xs:[i32;5]=[4,5,6,7,8];
-    print!("{}:{}:{}",xs[0],xs.len(),mem::size_of_val(&xs));
-    let  ys=&xs[2..4];
-    print!("{:?}",ys);
-    //string
-    let mut s="String";
-    let ss=String::from("String");
+    println!("Guess the number!");
+    let secret_number = rand::thread_rng().gen_range(1, 101);
+    loop {
+        println!("Please input your guess.");
 
+        let mut guess = String::new();
 
+        io::stdin().read_line(&mut guess)
+            .expect("Failed to read line");
+
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+
+        println!("You guessed: {}", guess);
+
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            }
+        }
+    }
 
 }
