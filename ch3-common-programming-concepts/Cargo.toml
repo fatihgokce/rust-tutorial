@@ -1,7 +1,7 @@
 [package]
-name = "hello-rust"
+name = "ch3-common-programming-concepts"
 version = "0.1.0"
 authors = ["fatih gokce <fatihgokce07@gmail.com>"]
 edition = "2018"
+
 [dependencies]
-rand = "0.3.14"
