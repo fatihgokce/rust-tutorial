@@ -3,6 +3,11 @@ struct Color{
     red:u8,
     green:u8
 }
+impl Color{
+     fn to_print(&self){
+         println!("{} {}",self.red,self.green);
+    }
+}
 fn main() {
     const MAX_POINTS:u32=100_000;
     println!("Hello, world!");
@@ -29,6 +34,19 @@ fn main() {
     for number in (1..4).rev() {
         println!("{}!", number);
     }
+    let my_string=String::from("How is it going?");
+    for token in my_string.split(" "){
+        println!("{}",token);
+    }
+    c.to_print();
+    let r;
+
+    {
+        let x = 5;
+        r = &x;
+    }
+
+    println!("r: {}", r);
 
 }
 fn print_to(color:&mut Color){
