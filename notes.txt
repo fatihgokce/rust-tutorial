@@ -11,3 +11,7 @@ cargo doc
 cargo publish
 -generate  new project
 cargo new hello-rust
+
+----ch5 using structure
+-`Rectangle` cannot be formatted using `:?`; if it is defined in your
+ crate, add `#[derive(Debug)]` or manually implement it
