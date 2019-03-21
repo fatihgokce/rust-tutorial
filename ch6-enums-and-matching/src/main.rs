@@ -1,3 +1,5 @@
+use std::any::Any;
+
 enum IpAddrKind {
     V4,
     V6,
@@ -42,8 +44,12 @@ fn main() {
     let some_string = Some("a string");
     let absent_number: Option<i32> = None;
     let x: i8 = 5;
-    let y: Option<i8> = Some(5);
+    let y = Some(5).unwrap();
 
-    let sum = x + y?;
+    let sum = x + y;
     println!("dda {}", sum);
+    let number = Some(7);
+    if let Some(i)=number{
+        println!("matched {}",i);
+    }
 }

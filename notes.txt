@@ -15,3 +15,42 @@ cargo new hello-rust
 ----ch5 using structure
 -`Rectangle` cannot be formatted using `:?`; if it is defined in your
  crate, add `#[derive(Debug)]` or manually implement it
+----ch7 packages,creates and modules
+-use a keyword to bring a path into scope
+-pub, a keyword to make items public
+-Renaming items when bringing them into scope with the as keyword
+?
+<pre>
+use std::num::ParseIntError;
+
+fn multiply(first_number_str: &str, second_number_str: &str) -> Result<i32, ParseIntError> {
+    let first_number = first_number_str.parse::<i32>()?;
+    let second_number = second_number_str.parse::<i32>()?;
+
+    Ok(first_number * second_number)
+}
+
+fn print(result: Result<i32, ParseIntError>) {
+    match result {
+        Ok(n)  => println!("n is {}", n),
+        Err(e) => println!("Error: {}", e),
+    }
+}
+
+fn main() {
+    print(multiply("10", "2"));
+    print(multiply("t", "2"));
+}
+</pre>
+use std::cmp::Ordering;
+use std::io;
+//same
+use std::{cmp::Ordering, io};
+//
+use std::io;
+use std::io::Write;
+//same
+
+use std::io::{self, Write};
+-all public
+use std::collections::*;
