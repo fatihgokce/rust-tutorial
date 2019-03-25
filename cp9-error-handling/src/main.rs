@@ -61,6 +61,10 @@ fn main() {
     let f=read_username_from_file2();
     println!("Hello, world!");
     //panic!("crash and burn");
+    //9.3 panic! or not to panic!
+    
+    
+    
 }
 fn read_username_from_file() -> Result<String, io::Error> {
     let f = File::open("hello.txt");

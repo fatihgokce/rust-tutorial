@@ -60,3 +60,7 @@ and the panic! macro that stops execution when the program encounters an unrecov
 -. When the panic! macro executes, your program will print a failure message,
 unwind and clean up the stack, and then quit
 **The ? Operator Can Only Be Used in Functions That Return Result
+
+--9.3 To panic! or not to panic!
+-When code panics, there’s no way to recover
+-In rare situations, it’s more appropriate to write code that panics instead of returning a Result.
