@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 fn main() {
     let v:Vec<i32>=Vec::new();
     //Rust provides the vec! macro for convenience
@@ -24,9 +25,9 @@ fn main() {
     for i in &mut v5{
         *i=*i*2;
     }
-    println!("{:?}",v5);
+    //println!("{:?}",v5);
     //Using an Enum to Store Multiple Types
-    [std::fmt::Debug]
+
     enum SpreadsheetCell {
         Int(i32),
         Float(f64),
@@ -37,5 +38,39 @@ fn main() {
         SpreadsheetCell::Text(String::from("blue")),
         SpreadsheetCell::Float(10.12),
     ];
+    //what is a string
+    let mut s = String::from("foo");
+    s.push_str("bar");
+    //let s = format!("{}-{}-{}", s1, s2, s3);
+    let mut hello = "çğü".to_string();
+    for l in hello.bytes(){
+        print!("{}-",l )
+    }
+    //Hash Map
+    let mut scores=HashMap::new();
+    scores.insert(String::from("Blue"),50);
+    scores.insert(String::from("Red"),60);
+    //get value return option
+    //let score=scores.get(&String::from("Blue")).unwrap();
+    //for
+    for (key,value) in &scores{
+        println!("{}:{}",key,value);
+    }
+    //updating a hash map
+    scores.insert(String::from("Blue"), 25);
+    //only inserting a value if the key has no value
+    scores.entry(String::from("Yellow")).or_insert(51);
+    println!("{:?}",scores);
+    //Updating a Value Based on the Old Value
+    let text = "hello world wonderful world";
+
+    let mut map = HashMap::new();
+
+    for word in text.split_whitespace() {
+        let count = map.entry(word).or_insert(0);;
+        *count += 1;
+    }
+
+    println!("{:?}", map);
     println!("Hello, world!");
 }

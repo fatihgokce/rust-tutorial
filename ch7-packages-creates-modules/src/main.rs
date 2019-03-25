@@ -46,10 +46,8 @@ fn main() {
     //use keyboard to bring paths
     clarinet();//absolute path
     lion();//relative path
-    let s=Some(21).
-        ();
-    println!("s:{}",s);
-
+    let s=Some(21);
+    
     print(multiply("t", "2"));
     //print(multiply("t", "2"));
 //    match s {
