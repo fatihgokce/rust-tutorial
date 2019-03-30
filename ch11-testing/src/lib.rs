@@ -41,10 +41,7 @@ mod tests {
 
         assert!(larger.can_hold(&smaller));
     }
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
+   
      #[test]
     fn another() {
         assert_eq!(2 + 2, 4);
@@ -62,6 +59,9 @@ mod tests {
     #[test]
     #[should_panic]
     fn greater_than_100() {
+        //cargo test -- --nocapture
+        //for print show
+       
         Guess::new(99);
     }
     #[test]
@@ -78,6 +78,18 @@ mod tests {
             Err(String::from("two plus two does not equal four"))
         }
     }
-
-
+     #[test]
+     #[ignore]
+    fn it_works() {
+        assert_eq!(2 + 2, 4);
+    }
+    //--running single tests
+    // cargo test greater_than_100
+    
+    //--filtering to run multiple tests
+    // cargo test it_
+    
+    //--ignoring some test
+    //After #[test] we add the #[ignore]
+    //If we want to run only the ignored tests, we can use cargo test -- --ignored:
 }
