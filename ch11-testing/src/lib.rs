@@ -91,5 +91,6 @@ mod tests {
     
     //--ignoring some test
     //After #[test] we add the #[ignore]
-    //If we want to run only the ignored tests, we can use cargo test -- --ignored:
+    //If we want to run only the ignored tests,
+    // we can use cargo test -- --ignored:
 }
