@@ -64,3 +64,10 @@ unwind and clean up the stack, and then quit
 --9.3 To panic! or not to panic!
 -When code panics, there’s no way to recover
 -In rare situations, it’s more appropriate to write code that panics instead of returning a Result.
+--12.6 Writing Error messages to standard error instead of standard output.
+-The way to demonstrate this behavior is by running the program with > and the filename,
+output.txt, that we want to redirect the standard output stream to.
+cargo run to poem.txt > output.txt
+--12.7
+-to show error on screen,we use eprintln! instead of println!
+cargo run > output.txt
