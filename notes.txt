@@ -71,3 +71,6 @@ cargo run to poem.txt > output.txt
 --12.7
 -to show error on screen,we use eprintln! instead of println!
 cargo run > output.txt
+--13.1
+-The Fn traits are provided by the standard library.
+All closures implement at least one of the traits: Fn, FnMut, or FnOnce
