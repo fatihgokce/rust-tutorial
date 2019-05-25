@@ -43,13 +43,20 @@ fn main() {
 
     {
         let x = 5;
-        r = &x;
+        r = x;
     }
 
     println!("r: {}", r);
+    let c2=Color{red:12,green:43};
+    let c3=change(c2);
+    println!("{}",c3.green);
 
 }
 fn print_to(color:&mut Color){
     color.red=100;
     println!("{}",color.red);
+}
+fn change(mut color:Color)->Color{
+    color.green=112;
+    color
 }

@@ -74,3 +74,15 @@ cargo run > output.txt
 --13.1
 -The Fn traits are provided by the standard library.
 All closures implement at least one of the traits: Fn, FnMut, or FnOnce
+-If you want to force the closure to take ownership of the values it uses in the environment,
+you can use the move keyword before the parameter list.
+This technique is mostly useful when passing a closure to a new thread to move the data
+so it’s owned by the new thread
+-All iterators implement a trait named Iterator
+pub trait Iterator {
+    type Item;
+
+    fn next(&mut self) -> Option<Self::Item>;
+
+    // methods with default implementations elided
+}
