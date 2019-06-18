@@ -1,0 +1,7 @@
+[package]
+name = "cp16-concurrency"
+version = "0.1.0"
+authors = ["fatih <fatihgokce07@gmail.com>"]
+edition = "2018"
+
+[dependencies]
