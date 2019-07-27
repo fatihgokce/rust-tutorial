@@ -2,11 +2,19 @@ use std::thread;
 use std::time::Duration;
 use std::alloc::handle_alloc_error;
 use std::sync::mpsc;
+use std::sync::Mutex;
 struct  Sn{
     str:String,
 }
 struct  Color(String);
 fn main() {
+    /*
+    a: &T      // immutable binding of immutable reference
+    mut a: &T      // mutable binding of immutable reference
+    a: &mut T  // immutable binding of mutable reference
+    mut a: &mut T  // mutable binding of mutable reference
+    */
+    let  val1:&mut i32 =  &mut 2;
     let v = vec![1, 2, 3];
     let handle=thread::spawn(move|| {
         println!("Here's a vector: {:?}", v);
@@ -93,4 +101,5 @@ fn main() {
     for received in rx {
         println!("Got3: {}", received);
     }
+
 }

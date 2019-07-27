@@ -99,5 +99,15 @@ You’ll use them most often in these situations:
 *Rc<T> enables multiple owners of the same data; Box<T> and RefCell<T> have single owners.
 *Box<T> allows immutable or mutable borrows checked at compile time; Rc<T> allows only immutable borrows checked at compile time; RefCell<T> allows immutable or mutable borrows checked at runtime.
 *Because RefCell<T> allows mutable borrows checked at runtime, you can mutate the value inside the RefCell<T> even when the RefCell<T> is immutable.
-
+-16.3shared-state-concurrency
+-Mutexes have a reputation for being difficult to use because
+you have to remember two rules:
+*You must attempt to acquire the lock before using the data.
+*When you’re done with the data that the mutex guards,
+you must unlock the data so other threads can acquire the lock.
+-16.4
+-The Send marker trait indicates that ownership of the type implementing Send can be transferred between threads.
+Almost every Rust type is Send, but there are some exceptions, including Rc<T>: this cannot be Send because
+if you cloned an Rc<T> value and tried to transfer ownership of the clone to another thread,
+both threads might update the reference count at the same time.
 
